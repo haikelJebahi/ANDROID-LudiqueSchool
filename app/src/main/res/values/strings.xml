@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">LudiqueSchool</string>
     <string name="inscription">INSCRIPTION</string>
+    <string name="login">Login</string>
+    <string name="requis">requis*</string>
+    <string name="MDP">Mot de Passe</string>
+    <string name="valider">Valider</string>
 </resources>
