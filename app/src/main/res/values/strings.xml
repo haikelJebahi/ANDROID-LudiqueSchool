@@ -1,4 +1,7 @@
 <resources>
+    <string name="bienvenue">Bienvenue</string>
     <string name="app_name">LudiqueSchool</string>
-    <string name="inscription">INSCRIPTION</string>
+    <string name="inscription">S\'inscrire</string>
+    <string name="connexion">Se connecter</string>
+    <string name="quitter">Quitter</string>
 </resources>
