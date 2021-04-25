@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "746274882797",
+    "project_id": "ludiqueschool",
+    "storage_bucket": "ludiqueschool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746274882797:android:82c4dd696808daf52778e4",
+        "android_client_info": {
+          "package_name": "com.example.ludiqueschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746274882797-asrlu4vk6stcj0nmh1ejaqsif3oe64st.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ludiqueschool",
+            "certificate_hash": "ff49003c31a9809321bddae1742e0c78c65ae8e3"
+          }
+        },
+        {
+          "client_id": "746274882797-22cmd5qnlhipll1obr7lkf0aa8di7gbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaPIqGtqNm_hsstre_nhTZSlpxZS-ci9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746274882797-22cmd5qnlhipll1obr7lkf0aa8di7gbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
