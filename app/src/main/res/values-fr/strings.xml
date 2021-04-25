@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bienvenue">Bienvenue</string>
+    <string name="app_name">LudiqueSchool</string>
+    <string name="inscription">S\'inscrire</string>
+    <string name="connexion">Se connecter</string>
+    <string name="quitter">Quitter</string>
+    <string name="requis">requis</string>
+    <string name="valider">valider</string>
+    <string name="MDP">Mot de passe</string>
+    <string name="login">Login</string>
+    <string name="erreurMail">Email est vide</string>
+    <string name="erreurMail2">Email est invalide</string>
+    <string name="erreurMdp">Mot de passe est vide</string>
+    <string name="erreurMdp2">Mot de passe invalide</string>
+    <string name="MDPcourt">Mot de passe trop court</string>
+    <string name="partir">Voulez-vous vraiment partir ?</string>
+    <string name="partirmaintenant">Oui, partir maintenant</string>
+    <string name="non">Non</string>
+    <string name="authentificationreussi">Authentification réussi</string>
+    <string name="authentifiicationerreur"> erreur Authentification</string>
+    <string name="creationuseremailreussi">creationutilisateurEmail:reussi</string>
+    <string name="creationuseremailerreur">creationutilisateurEmail:erreur</string>
+</resources>

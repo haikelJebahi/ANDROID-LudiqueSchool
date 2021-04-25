@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
     // affiche une boite de dialogue de confirmation lorsque l'utilisateur clique sur la page quitter
     public void quitterBTN(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Quitter");
-        builder.setMessage("Voulez-vous vraiment partir ?");
-        builder.setPositiveButton("Oui, partir maintenant", new DialogInterface.OnClickListener() {
+        builder.setTitle(getText(R.string.quitter));
+        builder.setMessage(getText(R.string.partir));
+        builder.setPositiveButton(getText(R.string.partirmaintenant), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 moveTaskToBack(true);
             }
         });
-        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getText(R.string.non), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

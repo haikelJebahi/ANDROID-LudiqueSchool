@@ -39,7 +39,7 @@
                 android:id="@+id/inscription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:text="@string/inscription"
                 android:textSize="15dp"
                 android:padding="10dp"
@@ -51,7 +51,7 @@
                 android:id="@+id/connexion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:text="@string/connexion"
                 android:textSize="15dp"
                 android:padding="10dp"
@@ -62,7 +62,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 android:text="@string/quitter"
                 android:textSize="15dp"
                 android:padding="10dp"
@@ -70,6 +70,7 @@
                 android:onClick="quitterBTN"
                 android:textColor="@color/black">
             </Button>
+
         </LinearLayout>
     </RelativeLayout>
 

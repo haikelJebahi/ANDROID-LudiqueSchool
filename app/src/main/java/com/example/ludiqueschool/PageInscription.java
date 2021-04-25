@@ -42,27 +42,27 @@ public class PageInscription extends AppCompatActivity
 
         if(email.isEmpty())
         {
-            mail.setError("Email vide");
+            mail.setError(getText(R.string.erreurMail));
             mail.requestFocus();
             return;
         }
         if(password.isEmpty())
         {
-            mdp.setError("Mot de passe vide");
+            mdp.setError(getText(R.string.erreurMdp));
             mdp.requestFocus();
             return;
         }
 
         if(password.length()<6)
         {
-            mdp.setError("Mot de passe trop court (<6)");
+            mdp.setError(getText(R.string.MDPcourt));
             mdp.requestFocus();
             return;
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {
-            mail.setError("Email invalide");
+            mail.setError(getText(R.string.erreurMail2));
             mail.requestFocus();
             return;
         }
@@ -71,16 +71,16 @@ public class PageInscription extends AppCompatActivity
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Log.d( "TAG", "createUserWithEmail:success" );
+                    Log.d( "TAG","createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
-                    Toast.makeText(PageInscription.this, "Authentication réussi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PageInscription.this, getText(R.string.authentificationreussi), Toast.LENGTH_SHORT).show();
                     finish();
                     Intent intentMainActivity = new Intent(PageInscription.this,PageConnexion.class);
                     startActivity(intentMainActivity);
                 } else {
-                    Log.w("TAG", "createUserWithEmail:failed");
-                    Toast.makeText(PageInscription.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                    Log.w("TAG","createUserWithEmail:failed");
+                    Toast.makeText(PageInscription.this, getText(R.string.authentifiicationerreur), Toast.LENGTH_SHORT).show();
                     //updateUI( null );
                 }
             }
