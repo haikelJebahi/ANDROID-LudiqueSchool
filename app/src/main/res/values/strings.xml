@@ -4,4 +4,8 @@
     <string name="inscription">S\'inscrire</string>
     <string name="connexion">Se connecter</string>
     <string name="quitter">Quitter</string>
+    <string name="requis">requis</string>
+    <string name="valider">valider</string>
+    <string name="MDP">Mot de passe</string>
+    <string name="login">Login</string>
 </resources>
