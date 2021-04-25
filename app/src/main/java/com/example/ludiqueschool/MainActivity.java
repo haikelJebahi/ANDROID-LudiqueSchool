@@ -18,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
 
     // intent pour lancer la page inscription lorsque l'utilisateur clique sur le bouton inscription
     public void inscriptionBTN(View view){
-        finish();
         Intent intentpageinscription = new Intent(this,PageInscription.class);
         startActivity(intentpageinscription);
     }
     // intent pour lancer la page connexion lorsque l'utilisateur clique sur le bouton connexion
     public void connexionBTN(View view){
-        finish();
+
         Intent intentpageconnexion = new Intent(this, PageConnexion.class);
         startActivityForResult(intentpageconnexion,0);
     }

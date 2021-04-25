@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="INSCRIPTION"
+        android:layout_marginTop="60dp"
+        android:text="Inscription"
         android:textSize="35dp"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
@@ -24,11 +24,8 @@
         android:orientation="vertical"
         android:padding="70dp">
 
-
-
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldlogin"
+            android:id="@+id/emailInscription"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +47,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldpasseword"
+            android:id="@+id/mdpInscription"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,6 +66,7 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:layout_width="match_parent"

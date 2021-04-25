@@ -8,4 +8,8 @@
     <string name="valider">valider</string>
     <string name="MDP">Mot de passe</string>
     <string name="login">Login</string>
+    <string name="erreurMail">Email est vide</string>
+    <string name="erreurMail2">Email est invalide</string>
+    <string name="erreurMdp">Mot de passe est vide</string>
+    <string name="erreurMdp2">Mot de passe invalide</string>
 </resources>
