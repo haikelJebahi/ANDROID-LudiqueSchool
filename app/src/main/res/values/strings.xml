@@ -20,4 +20,5 @@
     <string name="authentifiicationerreur">Authentication failed</string>
     <string name="creationuseremailreussi">createUserWithEmail:success</string>
     <string name="creationuseremailerreur">createUserWithEmail:failed</string>
+    <string name="menu">Menu</string>
 </resources>

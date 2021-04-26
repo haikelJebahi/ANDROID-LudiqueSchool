@@ -69,15 +69,15 @@ public class PageConnexion extends AppCompatActivity
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Log.d( "TAG","createUserWithEmail:success");
+                    Log.d( "TAG","signUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
                     Toast.makeText(PageConnexion.this, getText(R.string.authentificationreussi), Toast.LENGTH_SHORT).show();
-                    finish();
-                    Intent intentMainActivity = new Intent(PageConnexion.this,PageConnexion.class);
+                    //finish();
+                    Intent intentMainActivity = new Intent(PageConnexion.this,PageMenu.class);
                     startActivity(intentMainActivity);
                 } else {
-                    Log.w("TAG","createUserWithEmail:failed");
+                    Log.w("TAG","signUserWithEmail:failed");
                     Toast.makeText(PageConnexion.this, getText(R.string.authentifiicationerreur), Toast.LENGTH_SHORT).show();
                     //updateUI( null );
                 }
