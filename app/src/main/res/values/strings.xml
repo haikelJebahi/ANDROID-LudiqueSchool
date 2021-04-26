@@ -21,4 +21,7 @@
     <string name="creationuseremailreussi">createUserWithEmail:success</string>
     <string name="creationuseremailerreur">createUserWithEmail:failed</string>
     <string name="menu">Menu</string>
+    <string name="math">Mathematics</string>
+    <string name="histoire">History</string>
+    <string name="geographie">Geography</string>
 </resources>

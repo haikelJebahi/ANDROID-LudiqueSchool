@@ -22,4 +22,7 @@
     <string name="creationuseremailreussi">creationutilisateurEmail:reussi</string>
     <string name="creationuseremailerreur">creationutilisateurEmail:erreur</string>
     <string name="menu">Menu</string>
+    <string name="math">Mathématiques</string>
+    <string name="histoire">Histoire</string>
+    <string name="geographie">Géographie</string>
 </resources>
