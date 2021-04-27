@@ -25,11 +25,6 @@ public class PageExercicesMaths extends AppCompatActivity {
     private String choixOperateur;
     private EditText reponse;
 
-    /*private String[] mesReponses;
-    //private TableCalcul maTable;
-    private int facteurMax;//Nombre maximum des facteurs du calcul
-    private ArrayList<Integer> numeroPageErreur;*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +44,11 @@ public class PageExercicesMaths extends AppCompatActivity {
     }
 
         public void suivantBTN(View view) {
-            //sauvResultat();
             if(suivantBTN.getText().equals("confirm"))
             {
                 if(reponse.getText().equals(""))
                 {
                     erreur.setText("Réponse vide !!! ");
-
                 }
                 else
                 {
@@ -81,15 +74,6 @@ public class PageExercicesMaths extends AppCompatActivity {
         }
 
         public void precedentBTN(View view) {
-            //sauvResultat();
-            index--;
-            actualiserPage();
-        }
-
-    private void actualiserPage() {
-        //on affiche une boite de dialogue de sécurité avant la fermeture du niveau
-        if (index < 0) {
-            compteur.setText("1/"+nbQuestions);
             precedentBTN.setVisibility(View.INVISIBLE);
             final AlertDialog.Builder builder = new AlertDialog.Builder(PageExercicesMaths.this);
             builder.setTitle("Attention !");
@@ -113,7 +97,10 @@ public class PageExercicesMaths extends AppCompatActivity {
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
             dialog.show();
-        } else {
+        }
+
+    private void actualiserPage()
+    {
             compteur.setText((index+1)+"/"+nbQuestions);
             Random random = new Random();
             val1 = random.nextInt(100);
@@ -124,41 +111,10 @@ public class PageExercicesMaths extends AppCompatActivity {
 
             //Si on est à l'index 10/10
             if (index==nbQuestions-1) {
-                //suivantBTN.setText("Valider");
-                /*suivantBTN.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        onValider(v);
-                    }
-                });*/
 
-                /*resultat.setOnKeyListener(new View.OnKeyListener() {
-                    @Override
-                    public boolean onKey(View v, int keyCode, KeyEvent event) {
-                        if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {
-                            PageExercicesMaths.this.onValider(v);
-                            return true;
-                        }
-                        return false;
-                    }
-                });*/
             } else {
-                //suivantBTN.setText("Suivant");
-                suivantBTN.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        suivantBTN(v);
-                    }
-                });
-                /*resultat.setOnKeyListener(new View.OnKeyListener() {
-                    @Override
-                    public boolean onKey(View v, int keyCode, KeyEvent event) {
-                        if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {
-                            PageExercicesMaths.this.suivantBTN(v);
-                            return true;
-                        }
-                        return false;
-                    }
-                });*/
+
             }
         }
-    }
 }
+
