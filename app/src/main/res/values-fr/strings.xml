@@ -38,4 +38,8 @@
     <string name="niveaudiv">Niveau 4 : Division</string>
     <string name="continuer">Lancer</string>
     <string name="qcm">Vous allez répondre à une série de questions sous la forme d\'un questionnaire à choix multiples.\n\nAttention, vous ne pouvez cliquer qu\'une seule fois par question. Réfléchissez bien avant de répondre !\n\nSi vous êtes prêt appuyez sur \"Lancer\", sinon sur \"Quitter\".</string>
+    <string name="exercice">Exercice</string>
+    <string name="precedent">Précédent</string>
+    <string name="suivant">Suivant</string>
+    <string name="retourMenu">Retour au menu</string>
 </resources>

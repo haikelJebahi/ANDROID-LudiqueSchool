@@ -1,9 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageExercicesMaths">
+    tools:context=".PageExercicesMaths"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/exercice"
+        android:textColor="@color/orange"
+        android:textSize="35dp"></TextView>
+
+    <TextView
+        android:id="@+id/compteur"
+        android:layout_below="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="35dp"></TextView>
+
+    <LinearLayout
+        android:id="@+id/maths_ligne"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/boutons"
+        android:layout_below="@+id/compteur"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/calcul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="35dp"></TextView>
+
+        <EditText
+            android:id="@+id/resultat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="\?"
+            android:inputType="numberDecimal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/erreur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20dp"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boutons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="left">
+
+        <Button
+            android:id="@+id/precedentBTN"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/retourMenu"
+            android:background="@color/orange"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:onClick="precedentBTN"></Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/suivantBTN"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/valider"
+            android:background="@color/orange"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            android:onClick="suivantBTN"></Button>
+    </LinearLayout>
+</RelativeLayout>
