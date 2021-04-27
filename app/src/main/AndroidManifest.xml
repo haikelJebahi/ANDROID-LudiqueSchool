@@ -19,6 +19,9 @@
             android:name=".PageInscription"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".PageMenu" />
+
+        <activity android:name=".PageResultat" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

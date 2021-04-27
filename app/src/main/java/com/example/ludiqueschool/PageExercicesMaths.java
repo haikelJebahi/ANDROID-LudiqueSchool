@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +19,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static android.graphics.Color.GREEN;
+import static android.graphics.Color.RED;
+
 public class PageExercicesMaths extends AppCompatActivity {
     public static final String DIFFICULTE_KEY= "difficulte_key";//choix du niveau
     private Button suivantBTN, precedentBTN;
-    private int index, nbQuestions,val1,val2,resultat;
+    private int index, nbQuestions,val1,val2,point;
+    private double resultat;
     private TextView calcul, compteur,erreur;
     private String choixOperateur;
     private EditText reponse;
@@ -31,6 +37,7 @@ public class PageExercicesMaths extends AppCompatActivity {
         setContentView(R.layout.activity_pages_exercices_maths);
 
         index = 0;
+        point =0;
         nbQuestions = 10;
         suivantBTN = findViewById(R.id.suivantBTN);
         precedentBTN = findViewById(R.id.precedentBTN);
@@ -44,21 +51,29 @@ public class PageExercicesMaths extends AppCompatActivity {
     }
 
         public void suivantBTN(View view) {
+        Log.d("reponse",String.valueOf(reponse.getText()) );
+        Log.d("resultat",String.valueOf(resultat) );
+        //erreur.setText("joeur : "+reponse.getText()+" - reponse : "+String.valueOf(resultat));
             if(suivantBTN.getText().equals("confirm"))
             {
-                if(reponse.getText().equals(""))
+                if(reponse.getText().toString().equals(""))
                 {
+                    erreur.setTextColor(RED);
                     erreur.setText("Réponse vide !!! ");
                 }
                 else
                 {
-                    if(reponse.getText().equals(String.valueOf(resultat)))
+                    double zero = resultat - Double.valueOf(reponse.getText().toString());
+                    if(zero == 0)
                     {
+                        erreur.setTextColor(GREEN);
                         erreur.setText("Bonne réponse !!! ");
+                        point++;
                         suivantBTN.setText("Next");
                     }
                     else
                     {
+                        erreur.setTextColor(RED);
                         String faux = "Faux, la bonne réponse est "+String.valueOf(resultat);
                         erreur.setText(faux);
                         suivantBTN.setText("Next");
@@ -66,10 +81,21 @@ public class PageExercicesMaths extends AppCompatActivity {
                 }
             }
             else {
-                erreur.setText("");
-                index++;
-                suivantBTN.setText("Confirm");
-                actualiserPage();
+                if (index==nbQuestions-1)
+                {
+                    Intent intentPageResultat = new Intent(this, PageResultat.class);
+                    intentPageResultat.putExtra(PageResultat.BONNE_REPONSE, String.valueOf(point));
+                    startActivity(intentPageResultat);
+                    finish();
+                }
+                else
+                {
+                    erreur.setText("");
+                    reponse.setText("");
+                    index++;
+                    suivantBTN.setText("confirm");
+                    actualiserPage();
+                }
             }
         }
 
@@ -101,20 +127,28 @@ public class PageExercicesMaths extends AppCompatActivity {
 
     private void actualiserPage()
     {
-            compteur.setText((index+1)+"/"+nbQuestions);
-            Random random = new Random();
-            val1 = random.nextInt(100);
-            val2 = random.nextInt(100);
-            resultat = val1 + val2;
+        compteur.setText((index+1)+"/"+nbQuestions);
+        Random random = new Random();
+        val1 = random.nextInt(100);
+        val2 = random.nextInt(100);
 
-           calcul.setText(val1+choixOperateur+val2+" = ");
-
-            //Si on est à l'index 10/10
-            if (index==nbQuestions-1) {
-
-            } else {
-
-            }
+        switch (choixOperateur)
+        {
+            case "+":
+                resultat = val1 + val2;
+                break;
+            case "-":
+                resultat = val1 - val2;
+                break;
+            case "/":
+                resultat = (double) (val1 / val2);
+                break;
+            case "*":
+                resultat = val1 * val2;
+                break;
         }
+
+        calcul.setText(val1+choixOperateur+val2+" = ");
+    }
 }
 
