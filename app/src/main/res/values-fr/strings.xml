@@ -25,4 +25,17 @@
     <string name="math">Mathématiques</string>
     <string name="histoire">Histoire</string>
     <string name="geographie">Géographie</string>
+    <string name="mathexo">Exercices de mathématiques</string>
+    <string name="geoexo">Exercices de Géographie</string>
+    <string name="histoireexo">Exercices d\'Histoire</string>
+    <string name="niveau1">Niveau 1</string>
+    <string name="niveau2">Niveau 2</string>
+    <string name="niveau3">Niveau 3</string>
+    <string name="niveau4">Niveau 4</string>
+    <string name="niveauadd">Niveau 1 : Addition</string>
+    <string name="niveausubb">Niveau 2 : Soustraction</string>
+    <string name="niveaumul">Niveau 3 : Multiplication</string>
+    <string name="niveaudiv">Niveau 4 : Division</string>
+    <string name="continuer">Lancer</string>
+    <string name="qcm">Vous allez répondre à une série de questions sous la forme d\'un questionnaire à choix multiples.\n\nAttention, vous ne pouvez cliquer qu\'une seule fois par question. Réfléchissez bien avant de répondre !\n\nSi vous êtes prêt appuyez sur \"Lancer\", sinon sur \"Quitter\".</string>
 </resources>

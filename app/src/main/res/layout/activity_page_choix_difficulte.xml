@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageChoixDifficulte">
+    tools:context=".PageChoixDifficulte"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/choix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/mathexo"
+        android:textColor="@color/orange"
+        android:layout_marginTop="12dp"
+        android:textSize="30dp">
+
+    </TextView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/choix">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_margin="25dp"
+            android:paddingBottom="100dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/niveau1"
+                android:textSize="30dp"
+                android:padding="20dp"
+                android:layout_margin="40dp"
+                android:background="@color/orange"
+                android:onClick="niveau1BTN">
+            </Button>
+
+            <TextView
+                android:id="@+id/info1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/niveauadd"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/niveau2"
+                android:textSize="30dp"
+                android:padding="20dp"
+                android:layout_margin="40dp"
+                android:background="@color/orange"
+                android:onClick="niveau2BTN">
+            </Button>
+
+            <TextView
+                android:id="@+id/info2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/niveausubb"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/niveau3"
+                android:textSize="30dp"
+                android:padding="20dp"
+                android:layout_margin="40dp"
+                android:background="@color/orange"
+                android:onClick="niveau3BTN">
+            </Button>
+
+            <TextView
+                android:id="@+id/info3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/niveaumul"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/niveau4"
+                android:textSize="30dp"
+                android:padding="20dp"
+                android:layout_margin="40dp"
+                android:background="@color/orange"
+                android:onClick="niveau4BTN">
+            </Button>
+
+            <TextView
+                android:id="@+id/info4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/niveaudiv"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

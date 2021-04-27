@@ -9,6 +9,9 @@ import android.view.View;
 
 public class PageMenu extends AppCompatActivity {
 
+    public static final String HISTOIRE = "Histoire";
+    public static final String GEOGRAPHIE = "Géographie";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +26,16 @@ public class PageMenu extends AppCompatActivity {
 
     public void histoireBTN(View view) {
         Intent intentPageExercicesHistGeo = new Intent(this, PageExercicesHistGeo.class);
-        //intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY, Question.getHISTOIRE());
+        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getGEOGRAPHIE());
         startActivity(intentPageExercicesHistGeo);
     }
 
     public void geographieBTN(View view) {
         Intent intentPageExercicesHistGeo = new Intent(this, PageExercicesHistGeo.class);
-       // intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,Question.getGEOGRAPHIE());
+        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getHISTOIRE());
         startActivity(intentPageExercicesHistGeo);
     }
+
+    public String getGEOGRAPHIE() { return GEOGRAPHIE;}
+    public String getHISTOIRE(){ return HISTOIRE;}
 }
