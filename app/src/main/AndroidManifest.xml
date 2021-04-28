@@ -16,7 +16,7 @@
             android:name=".PageExercicesHistGeo" />
         <activity
             android:name=".PageChoixDifficulte"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".PageMenu"/>
         <activity
             android:name=".PageConnexion"
             android:parentActivityName=".MainActivity" />

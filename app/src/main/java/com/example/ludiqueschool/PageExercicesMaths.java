@@ -52,8 +52,8 @@ public class PageExercicesMaths extends AppCompatActivity {
     }
 
         public void suivantBTN(View view) {
-        Log.d("reponse",String.valueOf(reponse.getText()) );
-        Log.d("resultat",String.valueOf(resultat) );
+        /*Log.d("reponse",String.valueOf(reponse.getText()) );
+        Log.d("resultat",String.valueOf(resultat) );*/
         //erreur.setText("joeur : "+reponse.getText()+" - reponse : "+String.valueOf(resultat));
             if(suivantBTN.getText().equals("confirm"))
             {
@@ -114,6 +114,8 @@ public class PageExercicesMaths extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     compteur.setText("");
                     finish();
+                    Intent intentPageMeu = new Intent(PageExercicesMaths.this,PageMenu.class);
+                    startActivity(intentPageMeu);
                 }
             });
             builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
@@ -153,6 +155,9 @@ public class PageExercicesMaths extends AppCompatActivity {
                 break;
             case "/":
                 resultat = (double)val1 / (double)val2;
+                String res = String.valueOf(resultat);
+                int index = res.indexOf('.');
+                resultat = Double.valueOf(res.substring(0, index+2));
                 break;
             case "*":
                 resultat = val1 * val2;

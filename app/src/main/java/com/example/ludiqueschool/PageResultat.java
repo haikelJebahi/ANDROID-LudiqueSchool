@@ -67,12 +67,13 @@ public class PageResultat extends AppCompatActivity
     }
 
     public void retourBTN(View view) {
+        finish();
         Intent intentPageMenu = new Intent(this, PageMenu.class);
         startActivity(intentPageMenu);
-        finish();
     }
 
     public void recommencerBTN(View view) {
+        finish();
         Intent intentPageExercicesMaths = new Intent(this, PageExercicesMaths.class);
         intentPageExercicesMaths.putExtra(PageExercicesMaths.DIFFICULTE_KEY, choix);
         startActivity(intentPageExercicesMaths);
