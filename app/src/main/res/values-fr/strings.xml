@@ -42,4 +42,7 @@
     <string name="precedent">Précédent</string>
     <string name="suivant">Suivant</string>
     <string name="retourMenu">Retour au menu</string>
+    <string name="recommencer">Recommencer</string>
+    <string name="regle">* Prendre 1 chiffre après la virgule</string>
+
 </resources>

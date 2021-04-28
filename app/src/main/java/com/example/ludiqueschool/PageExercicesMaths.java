@@ -25,8 +25,9 @@ import static android.graphics.Color.RED;
 public class PageExercicesMaths extends AppCompatActivity {
     public static final String DIFFICULTE_KEY= "difficulte_key";//choix du niveau
     private Button suivantBTN, precedentBTN;
-    private int index, nbQuestions,val1,val2,point;
+    private int index, nbQuestions,point;
     private double resultat;
+    int val1,val2;
     private TextView calcul, compteur,erreur;
     private String choixOperateur;
     private EditText reponse;
@@ -84,7 +85,11 @@ public class PageExercicesMaths extends AppCompatActivity {
                 if (index==nbQuestions-1)
                 {
                     Intent intentPageResultat = new Intent(this, PageResultat.class);
-                    intentPageResultat.putExtra(PageResultat.BONNE_REPONSE, String.valueOf(point));
+                    //intentPageResultat.putExtra(PageResultat.BONNE_REPONSE, String.valueOf(point));
+                    ArrayList<String> list = new ArrayList<>();
+                    list.add(String.valueOf(point));
+                    list.add(choixOperateur);
+                    intentPageResultat.putStringArrayListExtra(PageResultat.BONNE_REPONSE,list);
                     startActivity(intentPageResultat);
                     finish();
                 }
@@ -138,10 +143,16 @@ public class PageExercicesMaths extends AppCompatActivity {
                 resultat = val1 + val2;
                 break;
             case "-":
+                while(val1<val2)
+                {
+                    random = new Random();
+                    val1 = random.nextInt(100);
+                    val2 = random.nextInt(100);
+                }
                 resultat = val1 - val2;
                 break;
             case "/":
-                resultat = (double) (val1 / val2);
+                resultat = (double)val1 / (double)val2;
                 break;
             case "*":
                 resultat = val1 * val2;

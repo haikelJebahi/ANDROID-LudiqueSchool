@@ -41,5 +41,7 @@
     <string name="precedent">previous</string>
     <string name="suivant">Next</string>
     <string name="retourMenu">Back to menu</string>
+    <string name="recommencer">Restart</string>
+    <string name="regle">* Take 1 digit after the decimal point</string>
 
 </resources>

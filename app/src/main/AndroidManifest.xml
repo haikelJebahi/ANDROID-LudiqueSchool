@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LudiqueSchool">
-        <activity android:name=".PageExercicesMaths"></activity>
-        <activity android:name=".PageExercicesHistGeo" />
-        <activity android:name=".PageChoixDifficulte" />
+        <activity
+            android:name=".PageExercicesMaths">
+        </activity>
+        <activity
+            android:name=".PageExercicesHistGeo" />
+        <activity
+            android:name=".PageChoixDifficulte"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PageConnexion"
             android:parentActivityName=".MainActivity" />
