@@ -104,34 +104,6 @@ public class PageExercicesMaths extends AppCompatActivity {
             }
         }
 
-        public void precedentBTN(View view) {
-            precedentBTN.setVisibility(View.INVISIBLE);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(PageExercicesMaths.this);
-            builder.setTitle("Attention !");
-            builder.setMessage("Si vous quittez l'exercice toute progression sera perdue");
-            builder.setPositiveButton("D'accord, quitter maintenant", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    compteur.setText("");
-                    finish();
-                    Intent intentPageMeu = new Intent(PageExercicesMaths.this,PageMenu.class);
-                    startActivity(intentPageMeu);
-                }
-            });
-            builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                    index = 0;
-                    precedentBTN.setVisibility(View.VISIBLE);
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.setCancelable(false);
-            dialog.show();
-        }
-
     private void actualiserPage()
     {
         compteur.setText((index+1)+"/"+nbQuestions);
@@ -165,6 +137,34 @@ public class PageExercicesMaths extends AppCompatActivity {
         }
 
         calcul.setText(val1+choixOperateur+val2+" = ");
+    }
+
+    public void precedentBTN(View view) {
+        precedentBTN.setVisibility(View.INVISIBLE);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PageExercicesMaths.this);
+        builder.setTitle("Attention !");
+        builder.setMessage("Si vous quittez l'exercice toute progression sera perdue");
+        builder.setPositiveButton("D'accord, quitter maintenant", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                compteur.setText("");
+                finish();
+                Intent intentPageMeu = new Intent(PageExercicesMaths.this,PageMenu.class);
+                startActivity(intentPageMeu);
+            }
+        });
+        builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                index = 0;
+                precedentBTN.setVisibility(View.VISIBLE);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        dialog.show();
     }
 }
 

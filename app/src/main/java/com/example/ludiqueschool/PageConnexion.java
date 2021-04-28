@@ -70,10 +70,10 @@ public class PageConnexion extends AppCompatActivity
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d( "TAG","signUserWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
+                    //FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
                     Toast.makeText(PageConnexion.this, getText(R.string.authentificationreussi), Toast.LENGTH_SHORT).show();
-                    //finish();
+                    finish();
                     Intent intentMainActivity = new Intent(PageConnexion.this,PageMenu.class);
                     startActivity(intentMainActivity);
                 } else {

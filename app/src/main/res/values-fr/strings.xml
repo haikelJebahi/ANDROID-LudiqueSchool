@@ -44,5 +44,6 @@
     <string name="retourMenu">Retour au menu</string>
     <string name="recommencer">Recommencer</string>
     <string name="regle">* Prendre 1 chiffre après la virgule</string>
-
+    <string name="deconnexion">Se déconnecter</string>
+    <string name="compris">compris</string>
 </resources>

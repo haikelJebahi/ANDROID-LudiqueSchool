@@ -18,21 +18,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Exercice"
             android:textColor="@color/orange"
+            android:layout_marginTop="50dp"
+            android:textSize="35dp"></TextView>
+        <TextView
+            android:id="@+id/compteur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:layout_marginBottom="45dp"
             android:textSize="35dp"></TextView>
 
         <TextView
-            android:id="@+id/template_question"
+            android:id="@+id/enonce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/qcm"
             android:gravity="center"
+            android:layout_marginTop="50dp"
             android:textColor="@android:color/black"
             android:textSize="18dp"></TextView>
-    </LinearLayout>
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp">
+            <RadioButton
+                android:id="@+id/rep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="la reponse 1"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:visibility="invisible"
+                android:onClick="radioClick1">
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/rep2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="la reponse 2"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:visibility="invisible"
+                android:onClick="radioClick2">
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/rep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="la reponse 3"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:visibility="invisible"
+                android:onClick="radioClick3">
+            </RadioButton>
+        </RadioGroup>
+        <TextView
+            android:id="@+id/erreur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"
+            android:textSize="18dp"></TextView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/boutons"
@@ -44,14 +98,14 @@
 
         <Button
             android:id="@+id/precedentBTN"
-            android:layout_width="110dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:text="@string/quitter"
+            android:text="@string/retourMenu"
             android:background="@color/orange"
             android:padding="20dp"
             android:layout_margin="20dp"
-            android:onClick="quitterBTN"></Button>
-
+            android:visibility="invisible"
+            android:onClick="precedentBTN"></Button>
     </LinearLayout>
 
     <LinearLayout
@@ -63,17 +117,13 @@
 
         <Button
             android:id="@+id/suivantBTN"
-            android:layout_width="110dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:text="Suivant"
+            android:text="@string/compris"
             android:background="@color/orange"
             android:padding="20dp"
             android:layout_margin="20dp"
             android:onClick="lancerBTN"></Button>
-
     </LinearLayout>
-
-
-
 
 </RelativeLayout>

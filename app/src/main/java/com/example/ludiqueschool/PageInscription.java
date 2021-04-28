@@ -72,7 +72,7 @@ public class PageInscription extends AppCompatActivity
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d( "TAG","createUserWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
+                    //FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
                     Toast.makeText(PageInscription.this, getText(R.string.authentificationreussi), Toast.LENGTH_SHORT).show();
                     finish();
@@ -85,7 +85,5 @@ public class PageInscription extends AppCompatActivity
                 }
             }
         });
-
-
     }
 }
