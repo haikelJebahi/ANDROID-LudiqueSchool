@@ -52,9 +52,6 @@ public class PageExercicesMaths extends AppCompatActivity {
     }
 
         public void suivantBTN(View view) {
-        /*Log.d("reponse",String.valueOf(reponse.getText()) );
-        Log.d("resultat",String.valueOf(resultat) );*/
-        //erreur.setText("joeur : "+reponse.getText()+" - reponse : "+String.valueOf(resultat));
             if(suivantBTN.getText().equals("confirm"))
             {
                 if(reponse.getText().toString().equals(""))

@@ -31,13 +31,13 @@ public class PageMenu extends AppCompatActivity {
 
     public void histoireBTN(View view) {
         Intent intentPageExercicesHistGeo = new Intent(this, PageExercicesHistGeo.class);
-        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getGEOGRAPHIE());
+        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getHISTOIRE());
         startActivity(intentPageExercicesHistGeo);
     }
 
     public void geographieBTN(View view) {
         Intent intentPageExercicesHistGeo = new Intent(this, PageExercicesHistGeo.class);
-        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getHISTOIRE());
+        intentPageExercicesHistGeo.putExtra(PageExercicesHistGeo.CATEGORIE_KEY,getGEOGRAPHIE());
         startActivity(intentPageExercicesHistGeo);
     }
 
