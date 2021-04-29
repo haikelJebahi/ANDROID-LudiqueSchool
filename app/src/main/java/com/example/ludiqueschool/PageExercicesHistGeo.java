@@ -31,7 +31,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
     public static final String CATEGORIE_KEY= "categorie_key";//categorie du QCM (Histoire, Géo)
     private TextView compteur, enonceView,erreur;
     private RadioButton rep1Radio,rep2Radio,rep3Radio;
-    private String choixCategorie, enonce, rep1,rep2,rep3,bd;
+    private String choixCategorie,bd;
     private int index,point,nbQuestions, nbQuestionsBD,rand;
     private Button suivantBTN, precedentBTN;
     private RadioGroup group;
