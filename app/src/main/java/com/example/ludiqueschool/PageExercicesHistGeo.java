@@ -150,7 +150,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
                 //intentPageResultat.putExtra(PageResultat.BONNE_REPONSE, String.valueOf(point));
                 ArrayList<String> list = new ArrayList<>();
                 list.add(String.valueOf(point));
-                list.add(CATEGORIE_KEY);
+                list.add(getIntent().getStringExtra(CATEGORIE_KEY));
                 intentPageResultat.putStringArrayListExtra(PageResultat.BONNE_REPONSE,list);
                 startActivity(intentPageResultat);
                 finish();
@@ -197,10 +197,41 @@ public class PageExercicesHistGeo extends AppCompatActivity {
 
         enonceView.setText(enonceList.get(rand));
 
+        int secondPoteauxHasard = rand = random.nextInt(6);
 
-        rep1Radio.setText(rep1List.get(rand));
-        rep2Radio.setText(rep2List.get(rand));
-        rep3Radio.setText(rep3List.get(rand));
+        switch (secondPoteauxHasard)
+        {
+            case 0:
+                rep1Radio.setText(rep1List.get(rand));
+                rep2Radio.setText(rep2List.get(rand));
+                rep3Radio.setText(rep3List.get(rand));
+                break;
+            case 1:
+                rep1Radio.setText(rep1List.get(rand));
+                rep2Radio.setText(rep3List.get(rand));
+                rep3Radio.setText(rep2List.get(rand));
+                break;
+            case 2:
+                rep1Radio.setText(rep2List.get(rand));
+                rep2Radio.setText(rep1List.get(rand));
+                rep3Radio.setText(rep3List.get(rand));
+                break;
+            case 3:
+                rep1Radio.setText(rep2List.get(rand));
+                rep2Radio.setText(rep3List.get(rand));
+                rep3Radio.setText(rep1List.get(rand));
+                break;
+            case 4:
+                rep1Radio.setText(rep2List.get(rand));
+                rep2Radio.setText(rep1List.get(rand));
+                rep3Radio.setText(rep3List.get(rand));
+                break;
+            case 5:
+                rep1Radio.setText(rep3List.get(rand));
+                rep2Radio.setText(rep2List.get(rand));
+                rep3Radio.setText(rep1List.get(rand));
+                break;
+        }
 
         suivantBTN.setText("next");
         suivantBTN.setEnabled(false);
