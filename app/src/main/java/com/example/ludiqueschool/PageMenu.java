@@ -2,11 +2,16 @@ package com.example.ludiqueschool;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,11 +21,23 @@ public class PageMenu extends AppCompatActivity {
 
     public static final String HISTOIRE = "Histoire";
     public static final String GEOGRAPHIE = "Géographie";
+    public TextView pseudo;
+    private String alias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_menu);
+
+        pseudo =  findViewById(R.id.pseudoMenu);
+
+        SharedPreferences sharedPref = getSharedPreferences("sharePref",Context.MODE_PRIVATE);
+
+        alias = sharedPref.getString("pseudo", "default");
+
+        Log.d("PSEUDO",alias);
+        alias = pseudo.getText().toString()+ " " + alias;
+        pseudo.setText(alias);
     }
 
     public void mathBTN(View view) {
@@ -48,6 +65,11 @@ public class PageMenu extends AppCompatActivity {
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Log.d( "TAG","signOutUserWithEmail:success");
             Toast.makeText(PageMenu.this, "Sign out : success", Toast.LENGTH_SHORT).show();
+            SharedPreferences sharedPref = getSharedPreferences("sharePref", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("pseudo", "");
+            editor.putString("mail", "");
+            editor.apply();
             finish();
             Intent intentMain = new Intent(this, MainActivity.class);
             startActivity(intentMain);

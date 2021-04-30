@@ -11,6 +11,9 @@
     <string name="login">Login</string>
     <string name="erreurMail">Email est vide</string>
     <string name="erreurMail2">Email est invalide</string>
+    <string name="erreurPseudo">Pseudo est vide</string>
+    <string name="erreurPseudo2">Pseudo existe déja</string>
+    <string name="erreurPseudo3">Pseudo trop court (>2)</string>
     <string name="erreurMdp">Mot de passe est vide</string>
     <string name="erreurMdp2">Mot de passe invalide</string>
     <string name="MDPcourt">Mot de passe trop court</string>
@@ -46,4 +49,5 @@
     <string name="regle">* Prendre 1 chiffre après la virgule</string>
     <string name="deconnexion">Se déconnecter</string>
     <string name="compris">compris</string>
+    <string name="pseudo">Pseudo</string>
 </resources>

@@ -10,6 +10,9 @@
     <string name="login">Login</string>
     <string name="erreurMail">Email is empty</string>
     <string name="erreurMail2">Email is invalid</string>
+    <string name="erreurPseudo">Pseudo is empty</string>
+    <string name="erreurPseudo2">Pseudo already exist</string>
+    <string name="erreurPseudo3">Pseudo too short (>2)</string>
     <string name="erreurMdp">Password is empty</string>
     <string name="erreurMdp2">Password invalid</string>
     <string name="MDPcourt">Password too short</string>
@@ -45,5 +48,5 @@
     <string name="regle">* Take 1 digit after the decimal point</string>
     <string name="deconnexion">Sign out</string>
     <string name="compris">understand</string>
-
+    <string name="pseudo">Pseudo</string>
 </resources>
