@@ -86,7 +86,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("TAG", document.getId() + " => " + document.getData().get("enonce"));
+                                Log.d("TAG", document.getId() + " => " + document.getData());
                                 enonceList.add(document.getData().get("enonce").toString());
                                 rep1List.add(document.getData().get("rep1").toString());
                                 rep2List.add(document.getData().get("rep2").toString());
@@ -181,6 +181,9 @@ public class PageExercicesHistGeo extends AppCompatActivity {
         }
         suivantBTN.setEnabled(true);
         ((RadioButton) view).setChecked(false);
+        rep1Radio.setEnabled(false);
+        rep2Radio.setEnabled(false);
+        rep3Radio.setEnabled(false);
     }
 
     private void actualiserPage()
@@ -196,8 +199,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
         indiceQuest.add(rand);
 
         enonceView.setText(enonceList.get(rand));
-
-        int secondPoteauxHasard = rand = random.nextInt(6);
+        int secondPoteauxHasard  = random.nextInt(6);
 
         switch (secondPoteauxHasard)
         {
@@ -235,6 +237,9 @@ public class PageExercicesHistGeo extends AppCompatActivity {
 
         suivantBTN.setText("next");
         suivantBTN.setEnabled(false);
+        rep1Radio.setEnabled(true);
+        rep2Radio.setEnabled(true);
+        rep3Radio.setEnabled(true);
     }
 
     public void menuBTN(View view)
