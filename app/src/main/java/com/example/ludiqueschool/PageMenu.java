@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class PageMenu extends AppCompatActivity {
     public static final String GEOGRAPHIE = "Géographie";
     public TextView pseudo;
     private String alias;
+    private Button stat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,18 @@ public class PageMenu extends AppCompatActivity {
         pseudo =  findViewById(R.id.pseudoMenu);
 
         SharedPreferences sharedPref = getSharedPreferences("sharePref",Context.MODE_PRIVATE);
-
         alias = sharedPref.getString("pseudo", "default");
+        if(alias.equals("V") || alias.equals("default") )
+        {
+            pseudo.setText(pseudo.getText().toString()+ " Guest");
+        }
+        else
+        {
+            stat =  findViewById(R.id.stat);
+            stat.setVisibility(View.VISIBLE);
+            pseudo.setText(pseudo.getText().toString()+ " " + alias);
+        }
 
-        Log.d("PSEUDO",alias);
-        alias = pseudo.getText().toString()+ " " + alias;
-        pseudo.setText(alias);
     }
 
     public void mathBTN(View view) {
@@ -58,25 +66,43 @@ public class PageMenu extends AppCompatActivity {
         startActivity(intentPageExercicesHistGeo);
     }
 
-    public void deconnexionBTN(View view) {
-        Log.d("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
-        FirebaseAuth.getInstance().signOut();
+    public void statistiqueBTN(View view) {
+        Intent intentPageStat = new Intent(this, PageStatistique.class);
+        startActivity(intentPageStat);
+    }
 
-        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-            Log.d( "TAG","signOutUserWithEmail:success");
+    public void deconnexionBTN(View view) {
+        //Log.d("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        Log.d( "OKKKKK",alias);
+        if(alias.equals("V") || alias.equals("default") )
+        {
+            Log.d( "OKKKKK","AHHHHAHHAHA");
             Toast.makeText(PageMenu.this, "Sign out : success", Toast.LENGTH_SHORT).show();
-            SharedPreferences sharedPref = getSharedPreferences("sharePref", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("pseudo", "");
-            editor.putString("mail", "");
-            editor.apply();
             finish();
             Intent intentMain = new Intent(this, MainActivity.class);
             startActivity(intentMain);
-        } else {
-            Log.w("TAG","signOutUserWithEmail:failed");
-            Toast.makeText(PageMenu.this, "Sign out : failed", Toast.LENGTH_SHORT).show();
         }
+        else
+        {
+            FirebaseAuth.getInstance().signOut();
+
+            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                Log.d( "TAG","signOutUserWithEmail:success");
+                Toast.makeText(PageMenu.this, "Sign out : success", Toast.LENGTH_SHORT).show();
+                SharedPreferences sharedPref = getSharedPreferences("sharePref", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("pseudo", "V");
+                editor.putString("mail", "V");
+                editor.apply();
+                finish();
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
+            } else {
+                Log.w("TAG","signOutUserWithEmail:failed");
+                Toast.makeText(PageMenu.this, "Sign out : failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
     public String getGEOGRAPHIE() { return GEOGRAPHIE;}

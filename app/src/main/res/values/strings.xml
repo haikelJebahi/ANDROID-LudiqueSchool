@@ -49,4 +49,11 @@
     <string name="deconnexion">Sign out</string>
     <string name="compris">understand</string>
     <string name="pseudo">Pseudo</string>
+    <string name="visiteur">Guest</string>
+    <string name="statistique">Statistic</string>
+    <string name="mathSous">Math substraction</string>
+    <string name="mathAdd">Math addition</string>
+    <string name="mathDiv">Math division</string>
+    <string name="mathMul">Math multiplication</string>
+    <string name="vide">Empty</string>
 </resources>

@@ -60,6 +60,19 @@
             </Button>
 
             <Button
+                android:id="@+id/visiteur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/visiteur"
+                android:textSize="15dp"
+                android:padding="10dp"
+                android:background="@color/orange"
+                android:onClick="visiteurBTN">
+            </Button>
+
+            <Button
+                android:theme="@style/Theme.Ludique"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -68,7 +81,7 @@
                 android:padding="10dp"
                 android:background="@android:color/black"
                 android:onClick="quitterBTN"
-                android:textColor="@color/black">
+                android:textColor="@color/orange">
             </Button>
 
         </LinearLayout>

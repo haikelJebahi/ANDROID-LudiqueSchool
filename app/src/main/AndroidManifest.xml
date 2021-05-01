@@ -18,8 +18,12 @@
             android:name=".PageChoixDifficulte"
             android:parentActivityName=".PageMenu"/>
         <activity
+            android:name=".PageStatistique"
+            android:parentActivityName=".PageMenu"/>
+        <activity
             android:name=".PageConnexion"
             android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".PageInscription"
             android:parentActivityName=".MainActivity" />
