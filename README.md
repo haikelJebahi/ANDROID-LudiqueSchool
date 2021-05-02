@@ -24,9 +24,9 @@ Après la réalisation des exercices l’utilisateur pourra voir ses résultats 
 
 ——————————————————————————————————————————————————————————————
 
-How to use it : 
+Documentation : 
 
-Le projet a été réalisé avec la technologie Android studio avec la version : Android Studio 4.1.2 
+Le projet a été réalisé par Haikel Jebahi et Benmansour Amine avec la technologie Android studio totalement en Java avec la version : Android Studio 4.1.2 
 ainsi que le build sivant : Build #AI-201.8743.12.41.7042882, built on December 20, 2020
 avec la version d'éxecution suivante (Runtime version ) : 1.8.0_242-release-1644-b3-6915495 x86_64
 et la VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
