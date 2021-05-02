@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:layout_marginBottom="20dp"
+            android:weightSum="6">
 
             <TextView
                 android:layout_width="match_parent"
@@ -25,14 +26,16 @@
                 android:text="@string/bienvenue"
                 android:gravity="center"
                 android:textSize="55dp"
-                android:textColor="@color/black">
+                android:textColor="@color/black"
+                android:layout_weight="1">
             </TextView>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
-                android:layout_marginTop="50dp"
-                android:src="@drawable/ecole">
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ecole"
+                android:layout_weight="1">
             </ImageView>
 
             <Button
@@ -43,8 +46,11 @@
                 android:text="@string/inscription"
                 android:textSize="15dp"
                 android:padding="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/orange"
-                android:onClick="inscriptionBTN">
+                android:onClick="inscriptionBTN"
+                android:layout_weight="1">
             </Button>
 
             <Button
@@ -55,8 +61,11 @@
                 android:text="@string/connexion"
                 android:textSize="15dp"
                 android:padding="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/orange"
-                android:onClick="connexionBTN">
+                android:onClick="connexionBTN"
+                android:layout_weight="1">
             </Button>
 
             <Button
@@ -67,8 +76,11 @@
                 android:text="@string/visiteur"
                 android:textSize="15dp"
                 android:padding="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/orange"
-                android:onClick="visiteurBTN">
+                android:onClick="visiteurBTN"
+                android:layout_weight="1">
             </Button>
 
             <Button
@@ -78,10 +90,13 @@
                 android:layout_marginTop="25dp"
                 android:text="@string/quitter"
                 android:textSize="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:padding="10dp"
                 android:background="@android:color/black"
                 android:onClick="quitterBTN"
-                android:textColor="@color/orange">
+                android:textColor="@color/orange"
+                android:layout_weight="1">
             </Button>
 
         </LinearLayout>

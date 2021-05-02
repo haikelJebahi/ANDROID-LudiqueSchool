@@ -107,7 +107,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
     public void lancerBTN(View view)
     {
         //page d'explication d'exercice + actualisation de la page ou fermeture
-        if(suivantBTN.getText().equals("understand"))
+        if(suivantBTN.getText().equals(getText(R.string.compris)))
         {
             enonceView.setText("");
             group.setVisibility(View.VISIBLE);
@@ -148,7 +148,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
             actualiserPage();
         }
         //question suivante
-        else if(suivantBTN.getText().equals("next"))
+        else if(suivantBTN.getText().equals(getText(R.string.suivant)))
         {
 
             //si on arrive a la derniere question on ouvre la pageResultat en faisant passer une liste
@@ -250,7 +250,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
                 break;
         }
 
-        suivantBTN.setText("next");
+        suivantBTN.setText(getText(R.string.suivant));
         suivantBTN.setEnabled(false);
         rep1Radio.setEnabled(true);
         rep2Radio.setEnabled(true);

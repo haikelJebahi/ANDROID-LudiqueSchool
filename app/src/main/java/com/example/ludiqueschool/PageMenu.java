@@ -37,7 +37,7 @@ public class PageMenu extends AppCompatActivity {
         alias = sharedPref.getString("pseudo", "default");
         if(alias.equals("V") || alias.equals("default") )
         {
-            pseudo.setText(pseudo.getText().toString()+ " Guest");
+            pseudo.setText(pseudo.getText().toString()+ " " + getText(R.string.visiteur));
         }
         else
         {

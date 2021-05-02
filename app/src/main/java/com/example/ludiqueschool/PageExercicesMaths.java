@@ -56,7 +56,7 @@ public class PageExercicesMaths extends AppCompatActivity {
     public void suivantBTN(View view) {
         //si le bouton = confirm alors on regarde ce que l'utilisateur a ecrit pour voir si il a bon
 
-        if(suivantBTN.getText().equals("confirm"))
+        if(suivantBTN.getText().equals(getText(R.string.valider)))
             {
                 //reponse vide
 
@@ -75,7 +75,7 @@ public class PageExercicesMaths extends AppCompatActivity {
                         erreur.setTextColor(GREEN);
                         erreur.setText("Bonne réponse !!! ");
                         point++;
-                        suivantBTN.setText("Next");
+                        suivantBTN.setText(getText(R.string.suivant));
                     }
                     else
                     {
@@ -84,7 +84,7 @@ public class PageExercicesMaths extends AppCompatActivity {
                         erreur.setTextColor(RED);
                         String faux = "Faux, la bonne réponse est "+String.valueOf(resultat);
                         erreur.setText(faux);
-                        suivantBTN.setText("Next");
+                        suivantBTN.setText(getText(R.string.suivant));
                     }
                 }
             }
@@ -109,7 +109,7 @@ public class PageExercicesMaths extends AppCompatActivity {
                     erreur.setText("");
                     reponse.setText("");
                     index++;
-                    suivantBTN.setText("confirm");
+                    suivantBTN.setText(getText(R.string.valider));
                     actualiserPage();
                 }
             }
