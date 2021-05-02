@@ -40,14 +40,15 @@ public class PageStatistique extends AppCompatActivity
     Button mathsousMoy,mathsousLast;
     Button mathdivMoy,mathdivLast;
     Button mathmulMoy,mathmulLast;
-    private FirebaseFirestore db;
-    private ArrayList<String> liste;
+    private FirebaseFirestore db; //BD des infos stockÃ©es dans la BD (questions, profil, stats, etc...)
+    private ArrayList<String> liste;//liste des exos
     int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_statistique);
+        //liste des exos
 
         liste = new ArrayList<String>();
         liste.add("bdgeo");
@@ -56,6 +57,7 @@ public class PageStatistique extends AppCompatActivity
         liste.add("bdmathsous");
         liste.add("bdmathdiv");
         liste.add("bdmathmul");
+        //on recupere le pseudo de l'utilisateur
 
         SharedPreferences sharedPref = getSharedPreferences("sharePref",Context.MODE_PRIVATE);
         pseudo = sharedPref.getString("pseudo", "default");
@@ -78,7 +80,7 @@ public class PageStatistique extends AppCompatActivity
 
         mathmulMoy= findViewById(R.id.matmulMoy);
         mathmulLast= findViewById(R.id.matmulLast);
-
+        //ne marche pas donc nous avons fait sans la boucle 1 par 1 (donc code plus long malheuresement
         /*for(i=0;i<liste.size();i++)
         {
             nomBd = liste.get(i);
@@ -132,6 +134,7 @@ public class PageStatistique extends AppCompatActivity
                         }
                     });
         }*/
+        //AFFICHAGE DE TOUTES LES TABLES EN FONCTIONS DE L'EXO
 
         db.collection("bdgeo")
                 .get()

@@ -17,30 +17,31 @@
             android:id="@+id/titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:textColor="@color/orange"
-            android:layout_marginTop="50dp"
             android:textSize="35dp"></TextView>
+
         <TextView
             android:id="@+id/compteur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="45dp"
             android:gravity="center"
             android:textColor="@color/black"
-            android:layout_marginBottom="45dp"
             android:textSize="35dp"></TextView>
 
         <TextView
             android:id="@+id/enonce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/qcm"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="@string/qcm"
             android:textColor="@android:color/black"
-            android:textSize="25dp"></TextView>
+            android:textSize="22dp"></TextView>
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -48,43 +49,44 @@
             android:layout_height="wrap_content"
             android:padding="30dp"
             android:visibility="invisible">
+
             <RadioButton
                 android:id="@+id/rep1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="la reponse 1"
-                android:textSize="20dp"
+                android:onClick="radioClick"
                 android:padding="10dp"
-                android:onClick="radioClick">
-            </RadioButton>
+                android:text="la reponse 1"
+                android:textSize="20dp"></RadioButton>
+
             <RadioButton
                 android:id="@+id/rep2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="la reponse 2"
-                android:textSize="20dp"
+                android:onClick="radioClick"
                 android:padding="10dp"
-                android:onClick="radioClick">
-            </RadioButton>
+                android:text="la reponse 2"
+                android:textSize="20dp"></RadioButton>
+
             <RadioButton
                 android:id="@+id/rep3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="la reponse 3"
-                android:textSize="20dp"
+                android:onClick="radioClick"
                 android:padding="10dp"
-                android:onClick="radioClick">
-            </RadioButton>
+                android:text="la reponse 3"
+                android:textSize="20dp"></RadioButton>
         </RadioGroup>
+
         <TextView
             android:id="@+id/erreur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
             android:gravity="center"
+            android:text=""
             android:textSize="18dp"></TextView>
     </LinearLayout>
 

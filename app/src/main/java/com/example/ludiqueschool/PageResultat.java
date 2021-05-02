@@ -34,13 +34,13 @@ public class PageResultat extends AppCompatActivity
 {
     public static final String BONNE_REPONSE ="bonne reponse";
     private TextView note,commentaire;
-    private String point,choix,pseudo,path;
+    private String point,choix,pseudo,path; //path = chemin d'un document qui comporte les données d'un seul joueur pour un seul exo
     private int nbP;
-    ArrayList<String> list;
-    private FirebaseFirestore db;
-    private boolean exist;
-    private int pt,coeff;
-    private double moyenne;
+    ArrayList<String> list; //liste envoyé par les pages d'exercices avec les points et l'exo (+,*,/,-,geo,hist)
+    private FirebaseFirestore db; //BD des infos stockées dans la BD (questions, profil, stats, etc...)
+    private boolean exist; //savoir si le joueur a deja fait cette exercice
+    private int pt,coeff; //pt(note) et nombre de note dans la BD
+    private double moyenne; //moyenne de toutes les notes deja existantes
     private Button stat;
 
     @Override
@@ -51,14 +51,16 @@ public class PageResultat extends AppCompatActivity
         commentaire = (TextView) findViewById(R.id.commentaire);
         note = (TextView) findViewById(R.id.note);
         stat = findViewById(R.id.stat);
+        //recuperation des données envoyés par les pages d'exercices
 
         list=getIntent().getExtras().getStringArrayList(BONNE_REPONSE);
         point =  list.get(0);
         choix = list.get(1);
 
         note.setText(point+"/10");
+        //note que nous mettrons dans la base de donnant en tant que LASTNOTE
         nbP = Integer.valueOf(point);
-
+        //commentaire en fonction de la note
         if(nbP == 0)
         {
             note.setTextColor(RED);
@@ -84,6 +86,7 @@ public class PageResultat extends AppCompatActivity
             note.setTextColor(GREEN);
             commentaire.setText("Félicitation, tu ne peux pas faire mieux !!!");
         }
+        //sauvegarde des notes en fonctions des exercices
 
         if(choix.equals(PageMenu.HISTOIRE) )
         {
@@ -142,15 +145,20 @@ public class PageResultat extends AppCompatActivity
 
     public void saveNote(String bd)
     {
+        //recuperation du pseudo dans sharedpreference
+
         SharedPreferences sharedPref = getSharedPreferences("sharePref", Context.MODE_PRIVATE);
         pseudo = sharedPref.getString("pseudo", "default");
+        //si le joueur nest pas un guest donc a un compte enregistré
+
         if(!pseudo.equals("V") && !pseudo.equals("default"))
         {
             exist = false;
             stat.setVisibility(View.VISIBLE);
 
             db = FirebaseFirestore.getInstance();
-            //voir si il existe data pour ce joueuer dans cette exo
+            //voir si le joueur a deja des données enregistrés dans cette exo
+
             db.collection(bd)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -160,26 +168,34 @@ public class PageResultat extends AppCompatActivity
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     //Log.d("TAG", document.getId() + " => " + document.getData().get("pseudo").toString());
                                     if(document.getData().get("pseudo").toString().equals(pseudo))
+                                    //des données existes donc le joueur a deja joué a cette exo
+
                                     {
                                         path = document.getId();
                                         exist = true;
                                         pt = Integer.valueOf(point);
                                         moyenne = Double.valueOf(document.getData().get("moyenne").toString());
                                         coeff = Integer.valueOf(document.getData().get("coeff").toString());
+                                        //On calcule donc la moyenne en fonction du coeff(nb de note) et de l'ancienne moyenne et de la nouvelle note;
+
 
                                         moyenne = (moyenne * (double)coeff) + pt;
+                                        //nouvelleMoyenne = ((moyenne * (double)nbNote) + derniere note)/ nbNote+1)
+
                                         moyenne = moyenne / (double)(coeff+1);
                                     }
                                 }
-                                //si les données n'existe pas (premiere utilisation de cette exo)
+                                //si les données n'existe pas (premiere utilisation de cette exo) on creer un document de cette exo pour ce joueur dans
+
                                 if(!exist)
                                 {
                                     Log.d("HISTOIRE","okkk");
                                     Map<String, Object> user = new HashMap<>();
                                     user.put("pseudo", pseudo);
-                                    user.put("coeff", "1");
+                                    user.put("coeff", "1"); // on a qu'une seule note vu quon vient de le creer
+
                                     user.put("last", point);
-                                    user.put("moyenne", point);
+                                    user.put("moyenne", point); //last et moyenne sont egaux car on a qu'une seule note
 
                                     // Add a new document with a generated ID
                                     db.collection(bd)
@@ -197,6 +213,8 @@ public class PageResultat extends AppCompatActivity
                                                 }
                                             });
                                 }
+                                //sinon on mets a jours les données deja existantes
+
                                 else
                                 {
                                     Log.d("HISTOIRE","okkkkk");

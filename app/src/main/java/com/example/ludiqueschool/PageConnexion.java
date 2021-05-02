@@ -31,7 +31,11 @@ import java.util.Map;
 public class PageConnexion extends AppCompatActivity
 {
     private com.google.android.material.textfield.TextInputLayout mail,mdp;
+    //BD des comptes utilisateurs
+
     private FirebaseAuth mAuth;
+    //BD des infos stockées dans la BD (questions, profil, stats, etc...)
+
     private FirebaseFirestore db;
     private String pseudo;
 
@@ -39,7 +43,7 @@ public class PageConnexion extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_connexion);
-
+        //instanciation des BD
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -80,6 +84,7 @@ public class PageConnexion extends AppCompatActivity
             mail.requestFocus();
             return;
         }
+        //connection de l'utilisateur
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -89,6 +94,9 @@ public class PageConnexion extends AppCompatActivity
                     //FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
 
+                    //On souhaite obtenir le profil utilisateur qui est dans la BD en fonction de l'email
+                    //afin de recuperer le pseudo et le mettre en sharepreference
+                    //afin d'avoir une persistance de donnée lorsque l'utilisateur ferme l'application
                     db.collection("profil")
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -96,6 +104,8 @@ public class PageConnexion extends AppCompatActivity
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()) {
                                         for (QueryDocumentSnapshot document : task.getResult()) {
+                                            //Log.d("TAG", document.getId() + " => " + document.getData());
+                                            //si le document a cette email -> alors on prend le pseudo et on le mets en sharedpreference
                                             Log.d("TAG", document.getId() + " => " + document.getData());
                                             if(document.getData().containsValue(email))
                                             {

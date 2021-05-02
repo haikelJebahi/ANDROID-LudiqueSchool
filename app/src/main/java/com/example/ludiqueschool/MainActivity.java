@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //On essaye d'obtenir le sharedpreference "pseudo" pour savoir si l'utilisateur
+        //est deja connecté
+
         SharedPreferences sharedPref = getSharedPreferences("sharePref", Context.MODE_PRIVATE);
 
         pseudo = sharedPref.getString("pseudo", "default");

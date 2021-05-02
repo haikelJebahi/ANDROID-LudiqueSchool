@@ -33,13 +33,17 @@ public class PageInscription extends AppCompatActivity
 {
     private com.google.android.material.textfield.TextInputLayout mail,mdp,pseudo;
     private ArrayList<String> pseudoList;
+    //BD des comptes utilisateurs
     private FirebaseAuth mAuth;
+    //BD des infos stockÃ©es dans la BD (questions, profil, stats, etc...)
+
     private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_inscription);
+        //instanciation des BD
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -47,6 +51,7 @@ public class PageInscription extends AppCompatActivity
         pseudo =  findViewById(R.id.pseudoInscription);
         mail =  findViewById(R.id.emailInscription);
         mdp = findViewById(R.id.mdpInscription);
+        //Obtenir tous les pseudo existant pour savoir si il existe deja durant l'inscription
 
         pseudoList = new ArrayList<String>();
         db.collection("profil")
@@ -120,6 +125,7 @@ public class PageInscription extends AppCompatActivity
             pseudo.requestFocus();
             return;
         }
+        //creation d'un nouvel utilisateur
 
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -128,12 +134,14 @@ public class PageInscription extends AppCompatActivity
                     Log.d( "TAG","createUserWithEmail:success");
                     //FirebaseUser user = mAuth.getCurrentUser();
                     //updateUI( user );
-                    // Create a new user with a first and last name
+                    // Creation du profil ou l'ont stock pseudo + email
+
                     Map<String, Object> user = new HashMap<>();
                     user.put("pseudo", alias);
                     user.put("email", email);
 
-                    // Add a new document with a generated ID
+                    // Creation du profil utilisateur
+
                     db.collection("profil")
                             .add(user)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

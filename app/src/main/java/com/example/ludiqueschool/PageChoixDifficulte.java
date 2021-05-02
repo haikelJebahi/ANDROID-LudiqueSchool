@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 public class PageChoixDifficulte extends AppCompatActivity
-{ //fonctionne uniquement pour les maths mais elle est générique si améliorations
+{
 
+    //Variables que nous enverrons a la prochaine activité
     public static final String ADDITION = "+";
     public static final String SOUSTRACTION = "-";
     public static final String DIVISION = "/";
@@ -19,24 +20,27 @@ public class PageChoixDifficulte extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_choix_difficulte);
     }
-
+    //exo addition
     public void niveau1BTN(View view) {
             Intent intentPageExercicesMaths = new Intent(this, PageExercicesMaths.class);
             intentPageExercicesMaths.putExtra(PageExercicesMaths.DIFFICULTE_KEY, ADDITION);
             startActivity(intentPageExercicesMaths);
     }
+    //exo soustraction
 
     public void niveau2BTN(View view) {
             Intent intentPageExercicesMaths = new Intent(this, PageExercicesMaths.class);
             intentPageExercicesMaths.putExtra(PageExercicesMaths.DIFFICULTE_KEY, SOUSTRACTION);
             startActivity(intentPageExercicesMaths);
     }
+    //exo multiplication
 
     public void niveau3BTN(View view) {
             Intent intentPageExercicesMaths = new Intent(this, PageExercicesMaths.class);
             intentPageExercicesMaths.putExtra(PageExercicesMaths.DIFFICULTE_KEY, MULTIPLICATION);
             startActivity(intentPageExercicesMaths);
     }
+    //exo division
 
     public void niveau4BTN(View view) {
             Intent intentPageExercicesMaths = new Intent(this, PageExercicesMaths.class);

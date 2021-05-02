@@ -31,12 +31,14 @@ public class PageExercicesHistGeo extends AppCompatActivity {
     public static final String CATEGORIE_KEY= "categorie_key";//categorie du QCM (Histoire, Géo)
     private TextView compteur, enonceView,erreur;
     private RadioButton rep1Radio,rep2Radio,rep3Radio;
-    private String choixCategorie,bd;
+    private String choixCategorie,bd; //bd = string de la base de donnée en fonction du choix d'exo (geo ou hist)
     private int index,point,nbQuestions, nbQuestionsBD,rand;
     private Button suivantBTN, precedentBTN;
     private RadioGroup group;
-    private ArrayList<String> enonceList,rep1List,rep2List,rep3List;
-    private ArrayList<Integer> indiceQuest;
+    private ArrayList<String> enonceList,rep1List,rep2List,rep3List;  // liste des enonces et de toutes les reponse (ex : enonce(0) -> rep1list(0) , rep2list(0), rep3list(0))
+    private ArrayList<Integer> indiceQuest; //On stock les questions deja posé pour pas qu'il y est redondance
+
+
 
 
     @Override
@@ -50,6 +52,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
         choixCategorie = getIntent().getStringExtra(CATEGORIE_KEY);
 
         Log.d("choix",choixCategorie);
+        //choix categorie pour la BD
         if(choixCategorie.equals(PageMenu.HISTOIRE))
         {
             titre.setText(getText(R.string.histoireexo));
@@ -59,6 +62,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
             titre.setText(getText(R.string.geoexo));
             bd = "geographie";
         }
+        //initialisation
         enonceList = new ArrayList<String>();
         rep1List = new ArrayList<String>();
         rep2List = new ArrayList<String>();
@@ -78,7 +82,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
         precedentBTN = findViewById(R.id.precedentBTN);
         compteur = (TextView) findViewById(R.id.compteur);
         erreur = (TextView) findViewById(R.id.erreur);
-
+        //obtenir tous les enonces + questions dans la BD en fonctions de l'exo choisit (geo ou hist)
         db.collection(bd)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -99,9 +103,10 @@ public class PageExercicesHistGeo extends AppCompatActivity {
                     }
                 });
     }
-
+    //ce bouton gere 2 options (compris et suivant)
     public void lancerBTN(View view)
     {
+        //page d'explication d'exercice + actualisation de la page ou fermeture
         if(suivantBTN.getText().equals("understand"))
         {
             enonceView.setText("");
@@ -142,8 +147,12 @@ public class PageExercicesHistGeo extends AppCompatActivity {
             //precedentBTN.setVisibility(View.VISIBLE);
             actualiserPage();
         }
+        //question suivante
         else if(suivantBTN.getText().equals("next"))
         {
+
+            //si on arrive a la derniere question on ouvre la pageResultat en faisant passer une liste
+            //contenant les points (note) + le choix d'exercice (geo ou hist)
             if(index+1 == 10)
             {
                 Intent intentPageResultat = new Intent(this, PageResultat.class);
@@ -155,6 +164,8 @@ public class PageExercicesHistGeo extends AppCompatActivity {
                 startActivity(intentPageResultat);
                 finish();
             }
+            //sinon prochaine question
+
             else
             {
                 erreur.setText("");
@@ -164,7 +175,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
         }
 
     }
-
+    //afficher si la reponse est bonne ou pas quand un radiobutton(une reponse) est selectionné
     public void radioClick(View view)
     {
         String choixRep = ((RadioButton) view).getText().toString();
@@ -189,7 +200,10 @@ public class PageExercicesHistGeo extends AppCompatActivity {
     private void actualiserPage()
     {
         compteur.setText((index+1)+"/"+nbQuestions);
+        //tant que le joueur n'a pas choisit une reponse, il ne peut pas passer a la question suivante
         suivantBTN.setEnabled(false);
+        //choisir une question aleatoirement et sans redondance
+
         Random random = new Random();
         rand = random.nextInt(nbQuestionsBD);
         while(indiceQuest.contains(rand))
@@ -200,6 +214,7 @@ public class PageExercicesHistGeo extends AppCompatActivity {
 
         enonceView.setText(enonceList.get(rand));
         int secondPoteauxHasard  = random.nextInt(6);
+        //affichage des questions aleatoirement (car la reponse est toujours dans la rep2list)
 
         switch (secondPoteauxHasard)
         {
