@@ -22,7 +22,7 @@ La page de choix d’exercice propose 3 domaines  d’éducation :
 
 Après la réalisation des exercices l’utilisateur pourra voir ses résultats : note et moyenne afin de constater ses progression pour pouvoir s’améliorer  !
 
-
+——————————————————————————————————————————————————————————————
 
 How to use it : 
 
